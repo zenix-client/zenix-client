@@ -1,0 +1,25 @@
+name: Import ZENIX source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract source archive
+        run: |
+          mkdir -p /tmp/zenix
+          unzip -q e8d10a93-35d5-42d2-b4c9-6ed62d1e8334.zip -d /tmp/zenix
+          find /tmp/zenix -name build.gradle -print
+
+      - name: Show extracted files
+        run: |
+          find /tmp/zenix -maxdepth 4 -type f | head -100

@@ -9,25 +9,24 @@ permissions:
 jobs:
   import:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Extract source archive
+      - name: Extract source
         run: |
           mkdir -p /tmp/zenix
           unzip -q e8d10a93-35d5-42d2-b4c9-6ed62d1e8334.zip -d /tmp/zenix
+          echo "FILES IN ARCHIVE:"
+          find /tmp/zenix -maxdepth 3 -type f | head -80
           ROOT=$(find /tmp/zenix -name build.gradle -printf '%h\n' | head -1)
           test -n "$ROOT"
           cp -a "$ROOT"/. .
-          rm -f e8d10a93-35d5-42d2-b4c9-6ed62d1e8334.zip
           git status --short
 
-      - name: Commit imported source
+      - name: Save source files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Import ZENIX source project" || echo "No changes to commit"
+          git commit -m "Import ZENIX source project" || true
           git push

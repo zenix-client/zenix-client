@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "zenix",
+  "version": "${version}",
+  "name": "ZENIX CLIENT",
+  "description": "Custom Fabric client for Minecraft 1.21.4",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "ru.zenix.ZenixClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

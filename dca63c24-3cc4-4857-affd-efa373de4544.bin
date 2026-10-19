@@ -1,0 +1,127 @@
+# Obsidian reference audit
+
+Source: obsidian_1_6_android.jar (111 module classes identified from SourceFile + category constants; module names, descriptions and setting labels are plain strings in the class constant pools.)
+
+The JAR ships a `LICENSE_obsidian` file containing the CC0 1.0 text. Nothing was copied: the bytecode is obfuscated and was not decompiled;
+the features below were re-implemented in ZENIX from names, descriptions and setting labels only. Anti-cheat bypass options were intentionally left out.
+
+## Transferred (re-implemented in ZENIX)
+
+| Obsidian | ZENIX |
+|---|---|
+| AimAssist | AimAssist |
+| AimBot | AimBot |
+| AirStuck | AirStuck (client-side only) |
+| AntiBot | AntiBot |
+| Arrows | Arrows |
+| Aura | Aura |
+| AutoAccept | AutoTPAccept |
+| AutoArmor | AutoArmor |
+| AutoEat | AutoEat |
+| AutoExplosion | AutoExplosion |
+| AutoFish | AutoFish |
+| AutoJump | AutoJump |
+| AutoLeave | AutoLeave |
+| AutoSwap | AutoSwap |
+| AutoTool | AutoTool |
+| AutoTotem | AutoTotem (+crystal/fall triggers) |
+| BlockESP | BlockESP |
+| ChestStealer | ChestStealer (+Randomize) |
+| ClickGui | ClickGUI |
+| ClickPearl | ClickPearl |
+| DeathCoord | DeathCoord |
+| EcOpen | EcOpen |
+| EntityESP | EntityESP |
+| FastBreak | NoDelay (Block Break delay only) |
+| FastExp | NoDelay (XP Bottle Use) |
+| Flight | Flight |
+| FullBright | FullBright (night-vision effect) |
+| HelpMessage | HelpMessage |
+| HighJump | HighJump |
+| HitMarker | HitMarker |
+| Interface | ClickGUI accent setting |
+| InventoryWalk | GuiMove |
+| ItemRelease | ItemRelease |
+| JumpCircle | JumpCircle |
+| LeaveTracker | LeaveTracker |
+| NoJumpDelay | NoDelay (Jump) |
+| NoPush | NoPush (players only) |
+| NoVignette | NoVignette |
+| Nuker | Nuker |
+| Projectile | Trajectories (pearl path included) |
+| Removals | Removals (fire, in-wall, clouds, shadows) |
+| SeeInvisibles | AntiInvisible |
+| Speed | Speed |
+| Spider | Spider (plain climb mode) |
+| Sprint | Sprint (+Keep In Water) |
+| TargetESP | TargetESP (box mode) |
+| Trails | Trails |
+| Trajectories | Trajectories |
+| TriggerBot | TriggerBot (+Smart Crits, Reset Sprint) |
+
+## Not transferred
+
+| Obsidian module | Category | Reason |
+|---|---|---|
+| AppleFarmer | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| AspectRatio | Render | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| AuctionHelper | Player | server-specific automation (needs that server's exact GUI/messages) |
+| AutoBuy | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| AutoDuel | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| AutoForest | Player | server-specific automation (needs that server's exact GUI/messages) |
+| AutoJoin | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| AutoTrap | Combat | not implemented yet (no technical blocker identified, just not done) |
+| AutoWarden | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| BlockOverlay | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| Chams | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| ClanUpgrader | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| ClientSounds | Misc | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| Cosmetics | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| Cubes | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| ElytraBoost | Movement | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ElytraMotion | Combat | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ElytraResolver | Combat | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ElytraSpeed | Movement | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ElytraSwap | Misc | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| FakePlayer | Player | not implemented yet (no technical blocker identified, just not done) |
+| FireworkESP | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| FreeCam | Movement | needs a packet/network hook not verified for 1.21.4 |
+| GrimBoatFly | Movement | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| GrimGlide | Movement | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| HitBubbles | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| ItemAim | Player | not implemented yet (no technical blocker identified, just not done) |
+| ItemScroller | Player | not implemented yet (no technical blocker identified, just not done) |
+| KTLeave | Player | server-specific automation (needs that server's exact GUI/messages) |
+| KillEffect | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| LayerCooldown | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| Lightning | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| LineGlyphes | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| LockSlot | Player | not implemented yet (no technical blocker identified, just not done) |
+| LootTracker | Render | server-specific automation (needs that server's exact GUI/messages) |
+| NameProtect | Misc | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| NoClip | Player | not implemented yet (no technical blocker identified, just not done) |
+| NoControllerWeb | Combat | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| NoSlow | Movement | needs a packet/network hook not verified for 1.21.4 |
+| NoVelocity | Movement | needs a packet/network hook not verified for 1.21.4 |
+| NoWeb | Movement | needs a packet/network hook not verified for 1.21.4 |
+| PacketCriticals | Combat | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| PlayerFakeLags | Movement | needs a packet/network hook not verified for 1.21.4 |
+| PotionTracker | Player | server-specific automation (needs that server's exact GUI/messages) |
+| RPSpoofer | Player | needs a packet/network hook not verified for 1.21.4 |
+| Rain | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| Satellite | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| ScoreboardHP | Misc | server-specific automation (needs that server's exact GUI/messages) |
+| ServerHelper | Misc | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ShaderHands | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| ShulkerPreview | Render | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| Sonar | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| Step | Movement | not implemented yet (no technical blocker identified, just not done) |
+| SwingAnimations | Render | needs a custom render pipeline / shaders (costly on Android, unverified) |
+| TargetPearl | Player | not implemented yet (no technical blocker identified, just not done) |
+| Timer | Movement | needs a packet/network hook not verified for 1.21.4 |
+| TotemPopSound | Render | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| TpBack | Movement | needs a packet/network hook not verified for 1.21.4 |
+| TpsSync | Combat | anti-cheat bypass logic for a specific server/anti-cheat (Grim, Lony, FunTime...) - deliberately not reproduced |
+| ViewModel | Render | needs a hand/projection/tooltip mixin whose 1.21.4 signature is not verified |
+| WardenESP | Render | server-specific automation (needs that server's exact GUI/messages) |
+| XCarry | Misc | not implemented yet (no technical blocker identified, just not done) |
